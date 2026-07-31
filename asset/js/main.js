@@ -109,34 +109,26 @@ document.addEventListener('DOMContentLoaded', () => {
   // Detail Data Store for Products
   const productDetails = {
     'securebridge': {
-      title: '🔐 SecureBridge - AI-Powered OT/ICS Security Platform',
-      badge: 'OT/ICS Cyber Security (v1.0.0)',
+      title: '🔐 SecureBridge - OT/ICS Security Platform',
+      badge: 'OT/ICS Cyber Security',
       img: 'asset/foto_banner/Comercial.jpg',
       content: `
         <div style="background:rgba(0, 242, 254, 0.05); border:1px solid var(--border-glow); padding:1rem 1.25rem; border-radius:var(--radius-sm); margin-bottom:1.5rem;">
           <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
             <span><strong style="color:#fff;">Platform:</strong> PT Optima Sarana Instrumen</span>
-            <span class="badge" style="background:rgba(16,185,129,0.15); color:var(--accent-emerald); border-color:rgba(16,185,129,0.3);"><i class="fa-solid fa-circle" style="font-size:0.5rem;"></i> Active Development — Live Deployment v1.0.0</span>
+            <span class="badge" style="background:rgba(16,185,129,0.15); color:var(--accent-emerald); border-color:rgba(16,185,129,0.3);"><i class="fa-solid fa-circle" style="font-size:0.5rem;"></i> Operational Technology Monitoring</span>
           </div>
         </div>
 
         <h3>What is SecureBridge?</h3>
-        <p>SecureBridge is an agentless OT/ICS security monitoring platform designed for industrial instrumentation companies and their clients in the oil & gas sector. It bridges the gap between enterprise OT security tools (Dragos, Claroty — $100k+/year) and companies that need industrial security without enterprise budgets.</p>
+        <p>SecureBridge is an agentless OT/ICS security monitoring platform designed for industrial instrumentation companies and critical infrastructure operations. It bridges the gap between enterprise security suites and industrial facilities requiring accessible, reliable operational defense.</p>
         
-        <h4 style="margin-top:1.5rem; color:var(--accent-cyan);">Architecture Flow:</h4>
-        <div style="background:#0a0d14; border:1px solid var(--border-color); padding:1.2rem; border-radius:var(--radius-sm); margin:0.8rem 0 1.5rem; font-family:var(--font-mono); font-size:0.85rem; color:var(--accent-cyan); overflow-x:auto;">
-          [OT Devices] → [Passive Capture] → [Protocol Analysis] → [ML Anomaly Detection] → [LLM Threat Analysis (Claude API)] → [Live SOC Dashboard & IEC 62443 Reports (ID/EN)]
-        </div>
-
-        <h4 style="margin-top:1.5rem; color:var(--accent-cyan);">7 Core Features:</h4>
+        <h4 style="margin-top:1.5rem; color:var(--accent-cyan);">Core Capabilities:</h4>
         <ul class="service-list" style="margin-top:0.8rem;">
-          <li><i class="fa-solid fa-shield-halved"></i> <strong>1. Agentless OT Network Monitor:</strong> Passive packet capture with zero impact on OT operations. No agent installation required on legacy OT devices.</li>
-          <li><i class="fa-solid fa-network-wired"></i> <strong>2. Protocol-Aware Analysis:</strong> Deep packet inspection for industrial protocols: Modbus TCP (register read/write), DNP3 (SCADA), OPC-UA (IT/OT bridge), S7comm (Siemens PLC detection).</li>
-          <li><i class="fa-solid fa-brain"></i> <strong>3. AI Anomaly Detection:</strong> Isolation Forest ML model trained on device-specific baselines to detect behavioral deviations invisible to signature tools.</li>
-          <li><i class="fa-solid fa-robot"></i> <strong>4. LLM Threat Advisor (Claude API):</strong> Intelligent threat analysis providing plain-English explanations, ranked root cause analysis, IEC 62443 response actions, and severity classification.</li>
-          <li><i class="fa-solid fa-chart-line"></i> <strong>5. Real-Time Dashboard:</strong> Streamlit-based SOC view showing live device status/health, anomaly timeline scoring, AI alert analysis, and network topology.</li>
-          <li><i class="fa-solid fa-file-pdf"></i> <strong>6. Compliance Report Generator:</strong> Automated PDF reports in English and Bahasa Indonesia with IEC 62443 compliance scoring, remediation roadmaps, and audit-ready executive summaries.</li>
-          <li><i class="fa-solid fa-bell"></i> <strong>7. Multi-Channel Alerting:</strong> Instant notification dispatch via Email (SMTP), Telegram Bot, and Dashboard alerts.</li>
+          <li><i class="fa-solid fa-shield-halved"></i> <strong>Non-Intrusive OT Monitoring:</strong> Zero-impact network monitoring tailored for legacy and modern industrial control systems.</li>
+          <li><i class="fa-solid fa-brain"></i> <strong>Intelligent Anomaly Detection:</strong> Continuous operational analysis to identify behavioral deviations and potential security threats.</li>
+          <li><i class="fa-solid fa-chart-line"></i> <strong>Real-Time Operational Visibility:</strong> Centralized security dashboard providing live asset health status and incident timeline tracking.</li>
+          <li><i class="fa-solid fa-file-pdf"></i> <strong>Automated Compliance & Reporting:</strong> Simplified report generation and instant alert dispatch for plant engineers and management teams.</li>
         </ul>
       `
     },
