@@ -301,22 +301,66 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', animateStats);
   animateStats();
 
-  // 7. Contact Form Interactive Handler
+  // 7. Contact Form Interactive Handler & Direct WhatsApp/Email Dispatch
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      
+      const name = document.getElementById('userName').value.trim();
+      const email = document.getElementById('userEmail').value.trim();
+      const interestSelect = document.getElementById('userInterest');
+      const interestText = interestSelect ? interestSelect.options[interestSelect.selectedIndex].text : 'General Inquiry';
+      const message = document.getElementById('userMessage').value.trim();
+
       const btn = contactForm.querySelector('button[type="submit"]');
       const originalText = btn.innerHTML;
 
       btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Processing Inquiry...`;
       btn.disabled = true;
 
+      const waText = encodeURIComponent(
+        `Halo PT Optima Sarana Instrumen,\n\nSaya ingin berkonsultasi mengenai produk/layanan:\n*Nama:* ${name}\n*Email:* ${email}\n*Topik:* ${interestText}\n\n*Pesan/Kebutuhan Proyek:* ${message}`
+      );
+      const waUrl = `https://wa.me/628129478417?text=${waText}`;
+      const mailtoUrl = `mailto:sales@optimasaranainstrumen.com?subject=${encodeURIComponent('Inquiry: ' + interestText)}&body=${encodeURIComponent(`Nama: ${name}\nEmail: ${email}\n\nPesan:\n${message}`)}`;
+
       setTimeout(() => {
-        btn.innerHTML = `<i class="fa-solid fa-circle-check"></i> Inquiry Submitted Successfully!`;
+        btn.innerHTML = `<i class="fa-solid fa-circle-check"></i> Inquiry Submitted!`;
         btn.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
         btn.style.color = '#fff';
 
+        const successHtml = `
+          <div style="text-align:center; padding:1rem 0;">
+            <div style="width:60px; height:60px; border-radius:50%; background:rgba(16,185,129,0.15); color:var(--accent-emerald); display:inline-flex; align-items:center; justify-content:center; font-size:1.8rem; margin-bottom:1rem;">
+              <i class="fa-solid fa-paper-plane"></i>
+            </div>
+            <h2 style="margin-bottom:0.5rem; color:#fff;">Inquiry Sent Successfully!</h2>
+            <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:1.5rem;">
+              Thank you, <strong>${name}</strong>. Our engineering team at PT Optima Sarana Instrumen has logged your inquiry regarding <em>${interestText}</em>.
+            </p>
+
+            <div style="background:rgba(255,255,255,0.03); border:1px solid var(--border-color); padding:1rem; border-radius:var(--radius-sm); margin-bottom:1.5rem; text-align:left; font-size:0.88rem;">
+              <div style="margin-bottom:0.4rem;"><strong>Email:</strong> ${email}</div>
+              <div><strong>Project Notes:</strong> ${message}</div>
+            </div>
+
+            <p style="font-size:0.88rem; color:var(--accent-cyan); margin-bottom:1rem;">
+              Need immediate response? Connect directly with our technical support team:
+            </p>
+
+            <div style="display:flex; gap:0.8rem; justify-content:center; flex-wrap:wrap;">
+              <a href="${waUrl}" target="_blank" rel="noopener" class="btn" style="background:#25D366; color:#fff; padding:0.6rem 1.2rem;">
+                <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp (08129478417)
+              </a>
+              <a href="${mailtoUrl}" class="btn btn-outline" style="padding:0.6rem 1.2rem;">
+                <i class="fa-solid fa-envelope"></i> Send via Email
+              </a>
+            </div>
+          </div>
+        `;
+
+        openModal(successHtml);
         contactForm.reset();
 
         setTimeout(() => {
@@ -324,7 +368,7 @@ document.addEventListener('DOMContentLoaded', () => {
           btn.disabled = false;
           btn.style.background = '';
         }, 4000);
-      }, 1200);
+      }, 1000);
     });
   }
 });
